@@ -39,14 +39,12 @@ var (
 
 func Login(username, password string) error {
 	var (
-		ac_id   = "1"
-		enc_ver = "srun_bx1"
-		n       = "200"
-		Type    = "1"
-		os      = "Mac OS"
-		name    = "Macintosh"
-		// os           = "Windows 10"
-		// name         = "Windows"
+		ac_id   	 = "76"
+		enc_ver 	 = "srun_bx1"
+		n       	 = "200"
+		Type    	 = "1"
+		os      	 = "Linux"
+		name    	 = "Linux"
 		double_stack = "0"
 	)
 	challenge, err := getResponse("challenge", url.Values{
@@ -210,17 +208,17 @@ func getLoginParams(username, password, ac_id, ip, enc_ver, n, Type, os, name, d
 	chksum := GetEncodedChkstr(chkstr)
 
 	return url.Values{
-		"action":   []string{"login"},
-		"username": []string{username},
-		"password": []string{"{MD5}" + password},
-		"ac_id":    []string{ac_id},
-		"ip":       []string{ip},
-		"chksum":   []string{chksum},
-		"info":     []string{info},
-		"n":        []string{n},
-		"type":     []string{Type},
-		// "os":           []string{os},
-		// "name":         []string{name},
+		"action":   	[]string{"login"},
+		"username": 	[]string{username},
+		"password": 	[]string{"{MD5}" + password},
+		"ac_id":    	[]string{ac_id},
+		"ip":       	[]string{ip},
+		"chksum":   	[]string{chksum},
+		"info":     	[]string{info},
+		"n":        	[]string{n},
+		"type":         []string{Type},
+		"os":           []string{os},
+		"name":         []string{name},
 		"double_stack": []string{double_stack},
 	}, nil
 }
